@@ -1,0 +1,8 @@
+format_version: 10
+pipelines:
+  build-swipejobs-worker-dev-android:
+    group: REACT-SWIPEJOBS-DEV-APPS
+    parameters:
+      APP_BRANCH: AFE-5754
+      RESOURCES_BRANCH: worker/merged
+      CONFIG_BRANCH: worker/merged
