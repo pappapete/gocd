@@ -1,38 +1,46 @@
 format_version: 10
-pipelines: 
-build-swipejobs-worker-preprod-ios: 
-group: REACT-SWIPEJOBS-PREPROD-APPS
-label_template: "#{APP_BRANCH}-${COUNT}"
-roles: 
-- mobile-dev: undefined
-parameters: 
-APP_BRANCH: worker-app-1.3.7-RP1000_SJ
-RESOURCES_BRANCH: worker-app-1.3.7-RP1000_SJ
-CONFIG_BRANCH: worker-app-1.3.7-RP1000_SJ
-ENV_CONFIG_PATH: "../frontend-environment-configurations/sj"
-PARTNER_RESOURCES_PATH: "../frontend-partner-resources/sj"
-BUNDLE_ID: com.swipejobs.premier.worker.preprod
-IPA_PATH: ios/worker.ipa
-USE_TESTFLIGHT: true
-NATIVE_PLATFORM: ios
-APP_REPO: "git@github.com
-APP_TYPE: worker
-APPLICATION_NAME: uapp
-OVERRIDE_ENV: preprod
-ENV: preprod
-BARE: true
-COUNTRY: usa
-IOS_ACCOUNT_KEY_ID: "BJ68MY8XPJ"
-IOS_ACCOUNT_ISSUER_ID: "69a6de81-29fb-47e3-e053-5b8c7c11a4d1"
-IOS_ACCOUNT_KEY_FILEPATH: "/Users/devops/AuthKey_BJ68MY8XPJ_swipejobs.p8"
-MATCH_GIT_BRANCH: "master"
-RUN_TESTS: 1
-materials: 
-code: 
-git: git@github.com
-auto_update: true
-branch: "#{CONFIG_BRANCH}"
-destination: "frontend-environment-configurations"
-partner_resources: 
-environment_configurations: 
-{% include 'templates/build-partner-native-app-ios-all-dev.tmpl' %}: undefined
+pipelines:
+  build-swipejobs-worker-preprod-ios:
+    group: REACT-SWIPEJOBS-PREPROD-APPS
+    label_template: "#{APP_BRANCH}-${COUNT}"
+    roles:
+      - mobile-dev
+    parameters:
+      APP_BRANCH: worker-app-11.1.0-RP9990_SJ
+      RESOURCES_BRANCH: worker-app-11.1.0-RP9990_SJ
+      CONFIG_BRANCH: worker-app-11.1.0-RP9990_SJ
+      ENV_CONFIG_PATH: "../frontend-environment-configurations/sj"
+      PARTNER_RESOURCES_PATH: "../frontend-partner-resources/sj"
+      BUNDLE_ID: com.swipejobs.premier.worker.preprod
+      IPA_PATH: ios/worker.ipa
+      USE_TESTFLIGHT: true
+      NATIVE_PLATFORM: ios
+      APP_REPO: "git@github.com:swipejobs/frontend-react-native-worker-app.git"
+      APP_TYPE: worker
+      APPLICATION_NAME: uapp
+      OVERRIDE_ENV: preprod
+      ENV: preprod
+      BARE: true
+      COUNTRY: usa
+      IOS_ACCOUNT_KEY_ID: "BJ68MY8XPJ"
+      IOS_ACCOUNT_ISSUER_ID: "69a6de81-29fb-47e3-e053-5b8c7c11a4d1"
+      IOS_ACCOUNT_KEY_FILEPATH: "/Users/devops/AuthKey_BJ68MY8XPJ_swipejobs.p8"
+      MATCH_GIT_BRANCH: "master"
+      RUN_TESTS: 1
+    materials:
+      code:
+        git: "#{APP_REPO}"
+        auto_update: true
+        branch: "#{APP_BRANCH}"
+        destination: app_source
+      partner_resources:
+        git: git@github.com:swipejobs/frontend-partner-resources.git
+        auto_update: true
+        branch: "#{RESOURCES_BRANCH}"
+        destination: "frontend-partner-resources"
+      environment_configurations:
+        git: git@github.com:swipejobs/frontend-environment-configurations.git
+        auto_update: true
+        branch: "#{CONFIG_BRANCH}"
+        destination: "frontend-environment-configurations"
+{% include 'templates/build-partner-native-app-ios-all-dev.tmpl' %}
