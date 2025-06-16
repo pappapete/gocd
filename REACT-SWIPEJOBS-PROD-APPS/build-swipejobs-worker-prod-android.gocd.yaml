@@ -1,46 +1,38 @@
 format_version: 10
-pipelines:
-  build-swipejobs-worker-prod-android:
-    group: REACT-SWIPEJOBS-PROD-APPS
-    label_template: "#{APP_BRANCH}-${COUNT}"
-    lock_behavior: unlockWhenFinished
-    roles:
-      - mobile-dev
-    environment_variables:
-      ANDROID_KEYSTORE_PATH: "../../../frontend-environment-configurations/sj/#{COUNTRY}/release.keystore"
-      ANDROID_SDK_ROOT: "/var/go/android-sdk"
-    parameters:
-      APP_BRANCH: worker-app-11.1.0-RP9990_SJ
-      RESOURCES_BRANCH: worker-app-11.1.0-RP9990_SJ
-      CONFIG_BRANCH: worker-app-11.1.0-RP9990_SJ
-      ENV_CONFIG_PATH: "../frontend-environment-configurations/sj"
-      PARTNER_RESOURCES_PATH: "../frontend-partner-resources/sj"
-      BUILD_OFFSET: 8972
-      BUNDLE_ID: com.swipejobs.premier.worker
-      APK_PATH: "apk"
-      BUNDLE_PATH: "android/bundle"
-      NATIVE_PLATFORM: android
-      APP_REPO: "git@github.com:swipejobs/frontend-react-native-worker-app.git"
-      APP_TYPE: worker
-      APPLICATION_NAME: uapp
-      OVERRIDE_ENV: prod
-      BARE: true
-      COUNTRY: usa
-      NPM_PARAMS: "--no-optional"
-    materials:
-      code:
-        git: "#{APP_REPO}"
-        auto_update: true
-        branch: "#{APP_BRANCH}"
-        destination: app_source
-      partner_resources:
-        git: git@github.com:swipejobs/frontend-partner-resources.git
-        auto_update: true
-        branch: "#{RESOURCES_BRANCH}"
-        destination: "frontend-partner-resources"
-      environment_configurations:
-        git: git@github.com:swipejobs/frontend-environment-configurations.git
-        auto_update: true
-        branch: "#{CONFIG_BRANCH}"
-        destination: "frontend-environment-configurations"
-{% include 'templates/build-partner-native-app-android-prod.tmpl' %}
+pipelines: 
+build-swipejobs-worker-prod-android: 
+group: REACT-SWIPEJOBS-PROD-APPS
+label_template: "#{APP_BRANCH}-${COUNT}"
+lock_behavior: unlockWhenFinished
+roles: 
+- mobile-dev: undefined
+environment_variables: 
+ANDROID_KEYSTORE_PATH: "../../../frontend-environment-configurations/sj/#{COUNTRY}/release.keystore"
+ANDROID_SDK_ROOT: "/var/go/android-sdk"
+parameters: 
+APP_BRANCH: worker-app-1.3.9-RP1000_SJ
+RESOURCES_BRANCH: worker-app-1.3.9-RP1000_SJ
+CONFIG_BRANCH: worker-app-1.3.9-RP1000_SJ
+ENV_CONFIG_PATH: "../frontend-environment-configurations/sj"
+PARTNER_RESOURCES_PATH: "../frontend-partner-resources/sj"
+BUILD_OFFSET: 8972
+BUNDLE_ID: com.swipejobs.premier.worker
+APK_PATH: "apk"
+BUNDLE_PATH: "android/bundle"
+NATIVE_PLATFORM: android
+APP_REPO: "git@github.com
+APP_TYPE: worker
+APPLICATION_NAME: uapp
+OVERRIDE_ENV: prod
+BARE: true
+COUNTRY: usa
+NPM_PARAMS: "--no-optional"
+materials: 
+code: 
+git: git@github.com
+auto_update: true
+branch: "#{CONFIG_BRANCH}"
+destination: "frontend-environment-configurations"
+partner_resources: 
+environment_configurations: 
+{% include 'templates/build-partner-native-app-android-prod.tmpl' %}: undefined
