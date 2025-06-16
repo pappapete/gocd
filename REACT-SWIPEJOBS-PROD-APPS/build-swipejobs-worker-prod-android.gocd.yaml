@@ -10,9 +10,9 @@ pipelines:
       ANDROID_KEYSTORE_PATH: "../../../frontend-environment-configurations/sj/#{COUNTRY}/release.keystore"
       ANDROID_SDK_ROOT: "/var/go/android-sdk"
     parameters:
-      APP_BRANCH: worker-app-11.1.0-RP9990_SJ
-      RESOURCES_BRANCH: worker-app-11.1.0-RP9990_SJ
-      CONFIG_BRANCH: worker-app-11.1.0-RP9990_SJ
+      APP_BRANCH: worker-app-1.4.2-RP1000_SJ
+      RESOURCES_BRANCH: worker-app-1.4.2-RP1000_SJ
+      CONFIG_BRANCH: worker-app-1.4.2-RP1000_SJ
       ENV_CONFIG_PATH: "../frontend-environment-configurations/sj"
       PARTNER_RESOURCES_PATH: "../frontend-partner-resources/sj"
       BUILD_OFFSET: 8972
