@@ -6,9 +6,9 @@ label_template: "#{APP_BRANCH}-${COUNT}"
 roles: 
 - mobile-dev: undefined
 parameters: 
-APP_BRANCH: worker-app-1.3.7-RP1000_SJ
-RESOURCES_BRANCH: worker-app-1.3.7-RP1000_SJ
-CONFIG_BRANCH: worker-app-1.3.7-RP1000_SJ
+APP_BRANCH: worker-app-1.3.9-RP1000_SJ
+RESOURCES_BRANCH: worker-app-1.3.9-RP1000_SJ
+CONFIG_BRANCH: worker-app-1.3.9-RP1000_SJ
 ENV_CONFIG_PATH: "../frontend-environment-configurations/sj"
 PARTNER_RESOURCES_PATH: "../frontend-partner-resources/sj"
 BUNDLE_ID: com.swipejobs.premier.worker.preprod
